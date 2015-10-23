@@ -103,4 +103,23 @@ router.post('/login', function (req, res) {
     });
 });
 
+// *** edit route *** //
+router.post('/edit/:id', function (req, res) {
+    var userUpdate = {
+        email: req.body.email,
+        password: req.body.password
+    };
+    User.findByIdAndUpdate(req.params.id, update, function (err, data) {
+        if (err) {
+            res.json({
+                message: 'Something is broken with update. Sorry, try again'
+            });
+        } else {
+            res.json({
+                message: 'updated ya damn fool'
+            });
+        }
+    });
+});
+
 module.exports = router;

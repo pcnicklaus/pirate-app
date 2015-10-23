@@ -1,18 +1,8 @@
-app.controller('logoutCtrl', function ($scope, $auth, $rootScope, $window, $location) {
+app.controller('logoutCtrl', function ($scope, $window, $auth) {
 
     $scope.logout = function () {
-        console.log('here');
-        $auth.logout()
-
-        .then(function (response) {
-                console.log(response);
-                // $window.localStorage.currentUser = // clear local storage
-                $rootScope.currentUser = null;
-                $location.path('/login');
-            })
-            .catch(function (response) {
-                console.log(response);
-            });
+        $auth.logout();
+        delete $window.localStorage.currentUser;
     };
 
 });

@@ -8,23 +8,28 @@ app.config(function ($routeProvider, $authProvider, $locationProvider) {
     //     $authProvider.signupRedirect = '/login';
     $routeProvider
         .when('/', {
-            templateUrl: 'partials/welcome.html'
+            templateUrl: 'partials/welcome.html',
+            contorller: 'mainCtrl'
         })
         .when('/home', {
-            templateUrl: 'partials/home.html'
+            templateUrl: 'partials/home.html',
+            controller: 'mainCtrl'
         })
         .when('/login', {
             templateUrl: 'partials/login.html',
-            controller: 'loginCtrl'
+            controller: 'mainCtrl'
         })
         .when('/signup', {
             templateUrl: 'partials/signup.html',
             controller: 'signupCtrl'
         })
-        .when('/logout', {
-            controller: 'logoutCtrl',
-            template: '<h1>logged out beeeeotch</h1>'
+        .when('/edit', {
+            templateUrl: 'partials/edit.html',
+            controller: 'editCtrl'
         })
-        .otherwise('/');
+        .when('/logout', {
+            controller: 'logoutCtrl'
+        })
+        .otherwise('/home');
 
 });

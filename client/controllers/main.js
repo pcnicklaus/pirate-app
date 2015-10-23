@@ -1,4 +1,4 @@
-app.controller('loginCtrl', function ($scope, $auth, $rootScope, $window, $location) {
+app.controller('mainCtrl', function ($scope, $rootScope, $window, $auth, $location) {
 
     $scope.login = function () {
 
@@ -22,5 +22,9 @@ app.controller('loginCtrl', function ($scope, $auth, $rootScope, $window, $locat
         return $auth.isAuthenticated();
     };
 
+    $scope.logout = function () {
+        $auth.logout();
+        delete $window.localStorage.currentUser;
+    };
 
 });
