@@ -13,6 +13,7 @@ var config = require('./_config');
 // *** routes *** //
 var routes = require('./routes/index.js');
 var authRoutes = require('./routes/auth.js');
+var ships = require('./routes/ships.js');
 
 
 // *** express instance *** //
@@ -40,9 +41,12 @@ app.use(express.static(path.join(__dirname, '../client')));
 //mongoose connect
 mongoose.connect(config.MONGO_URI);
 
+
 // *** main routes *** //
-app.use('/', routes);
 app.use('/auth', authRoutes);
+app.use('/pirate', ships);
+app.use('/', routes);
+
 
 
 // catch 404 and forward to error handler

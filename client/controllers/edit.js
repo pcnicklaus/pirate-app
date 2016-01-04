@@ -1,11 +1,11 @@
-app.controller('editCtrl', function ($scope, $auth, $rootScope, $window, $location, $http) {
-
-    $scope.edit = function (id) {
-        var url = 'auth/edit/' + id
-        var payload = {
-            email: $scope.email,
-            password: $scope.password
-        };
+//app.controller('editCtrl', function ($scope, $auth, $rootScope, $window, $location, $http) {
+//
+//    $scope.edit = function (id) {
+//        var url = 'auth/edit/' + id
+//        var payload = {
+//            email: $scope.email,
+//            password: $scope.password
+//        };
 
 //        $auth.login(user)
     //            .then(function (response) {
@@ -21,5 +21,5 @@ app.controller('editCtrl', function ($scope, $auth, $rootScope, $window, $locati
     //    $scope.isAuthenticated = function () {
     //        return $auth.isAuthenticated();
     //    };
-
-});
+//
+//});

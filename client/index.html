@@ -33,8 +33,9 @@
                         <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
                         <li ng-if="!isAuthenticated()"><a href="#/signup">Signup</a></li>
                         <li ng-if="isAuthenticated()"><a href="#/edit">Edit Profile</a></li>
-                        <li ng-if="isAuthenticated()"><a ng-click="logout()" href="#/logout">Logout</a></li>
 
+                        <li ng-if="isAuthenticated()"><a href="#/profile">Profile</a></li>
+                        <li ng-if="isAuthenticated()"><a ng-click="logout()" href="#/logout">Logout</a></li>
 
                     </ul>
                 </div>
@@ -66,7 +67,8 @@
     <script type="text/javascript" src="controllers/signup.js"></script>
     <script type="text/javascript" src="controllers/main.js"></script>
     <script type="text/javascript" src="controllers/logout.js"></script>
-    <script type="text/javascript" src="controllers/edit.js"></script>
+    <!--<script type="text/javascript" src="controllers/edit.js"></script>-->
+    <script type="text/javascript" src="controllers/profile.js"></script>
 
 
 

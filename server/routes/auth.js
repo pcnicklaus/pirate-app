@@ -104,22 +104,29 @@ router.post('/login', function (req, res) {
 });
 
 // *** edit route *** //
-router.post('/edit/:id', function (req, res) {
-    var userUpdate = {
-        email: req.body.email,
-        password: req.body.password
-    };
-    User.findByIdAndUpdate(req.params.id, update, function (err, data) {
-        if (err) {
-            res.json({
-                message: 'Something is broken with update. Sorry, try again'
-            });
-        } else {
-            res.json({
-                message: 'updated ya damn fool'
+router.put('/edit', ensureAuthenticated, function (req, res) {
+
+    User.findOne({
+        _id: req.body._id
+    }, function (err, user) {
+        if (!user) {
+            return res.status(401).send({
+                message: {
+                    email: 'something'
+                }
             });
         }
+        if (req.body.password) {
+            user.password = req.body.password;
+        }
+        user.username = req.body.username;
+        user.email = req.body.email;
+        user.save(function () {
+            res.send(user);
+        });
     });
 });
+
+
 
 module.exports = router;
